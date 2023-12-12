@@ -72,13 +72,11 @@ def create_run_and_get_last_message(thread_id,assistant_id):
             tool_call_outputs = []
             for tool_call in tool_calls:
                 tool_call_output = execute_action(thread_id,run_id,tool_call)
-                print("tool_call_output: ", tool_call_output)
                 tool_call_outputs.append(tool_call_output)
             submit_function_outputs(thread_id,run_id,tool_call_outputs)
 
         retrieve_run_response = retrieve_run(thread_id,run_id)
         retrieve_run_response_json = retrieve_run_response.json
-        print(retrieve_run_response_json['status'])
 
 
     last_message = get_thread_last_message(thread_id)

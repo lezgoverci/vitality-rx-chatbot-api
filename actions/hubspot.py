@@ -86,7 +86,6 @@ def create_new_contact_if_not_found(email, first_name, last_name):
         return  'Error adding contact'
 
     output = response.json()
-    print("output: ", output)
     output_string = output['properties']['firstname'] +" "+ output['properties']['lastname']
 
     return output_string
@@ -135,8 +134,6 @@ def handoff_to_agent(customer_id, customer_name, issue_summary, conversation_sum
 
     response = requests.post(url, json=data, headers=headers)
     output =  response.json()
-
-    print("output: ", output)
 
     if response.status_code != 201:
         return 'Error adding ticket'

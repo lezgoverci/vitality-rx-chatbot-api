@@ -1,6 +1,6 @@
 
 import json
-from actions.hubspot import check_order_status, create_new_contact_if_not_found, create_ticket_in_hubspot, get_available_appointment_slots, reschedule_telemed_appointment, retrieve_telemed_appointment_details, search_hubspot_contact_by_email, verify_contact_identity
+from actions.hubspot import check_order_status, create_new_contact_if_not_found, handoff_to_agent, get_available_appointment_slots, reschedule_telemed_appointment, retrieve_telemed_appointment_details, search_hubspot_contact_by_email, verify_contact_identity
 from actions.openai import add_thread_message, create_run, get_thread_last_message, retrieve_run, submit_function_outputs
 
 
@@ -18,8 +18,8 @@ def execute_action(thread_id, run_id, action):
 
     result = None
 
-    if(action["function"]["name"] == "create_ticket_in_hubspot"):
-         result = create_ticket_in_hubspot(arguments["customer_id"], arguments["customer_name"], arguments["issue_summary"])
+    if(action["function"]["name"] == "handoff_to_agent"):
+         result = handoff_to_agent(arguments["customer_id"], arguments["customer_name"], arguments["issue_summary"])
     if(action["function"]["name"] == "retrieve_telemed_appointment_details"):
          #retrieve_telemed_appointment_details
          #result = retrieve_telemed_appointment_details(arguments["email"], arguments["first_name"], arguments["last_name"])

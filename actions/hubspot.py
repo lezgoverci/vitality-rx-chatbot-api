@@ -103,7 +103,7 @@ def check_order_status():
 def retrieve_telemed_appointment_details():
     return jsonify()
 
-def create_ticket_in_hubspot(customer_id, customer_name, issue_summary):
+def handoff_to_agent(customer_id, customer_name, issue_summary):
     url = "https://api.hubapi.com/crm/v3/objects/tickets"
     headers = {
         "Content-Type": "application/json",

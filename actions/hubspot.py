@@ -39,7 +39,7 @@ def search_hubspot_contact_by_email(email):
 
     if output['total'] == 0:
         return 'Contact not found'
-    output_string = output['results'][0]['properties']['firstname'] +" "+ output['results'][0]['properties']['lastname'] +" id:"+ output['results'][0]['id']
+    output_string = "customer name: "+ output['results'][0]['properties']['firstname'] +" "+ output['results'][0]['properties']['lastname'] +" customer id:"+ output['results'][0]['id']
 
     return output_string
 

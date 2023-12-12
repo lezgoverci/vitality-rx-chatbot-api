@@ -19,7 +19,7 @@ def execute_action(thread_id, run_id, action):
     result = None
 
     if(action["function"]["name"] == "handoff_to_agent"):
-         result = handoff_to_agent(arguments["customer_id"], arguments["customer_name"], arguments["issue_summary"], arguments["conversation_summary"])
+         result = handoff_to_agent(arguments["customer_id"], arguments["customer_name"], arguments["issue_summary"], arguments["conversation_summary"], arguments["chat_history"])
     if(action["function"]["name"] == "retrieve_telemed_appointment_details"):
          #retrieve_telemed_appointment_details
          #result = retrieve_telemed_appointment_details(arguments["email"], arguments["first_name"], arguments["last_name"])

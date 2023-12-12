@@ -102,7 +102,7 @@ def check_order_status():
 def retrieve_telemed_appointment_details():
     return jsonify()
 
-def handoff_to_agent(customer_id, customer_name, issue_summary, conversation_summary, chat_history):
+def handoff_to_agent(customer_id, customer_name, issue_summary, conversation_summary):
     url = "https://api.hubapi.com/crm/v3/objects/tickets"
     headers = {
         "Content-Type": "application/json",
@@ -113,7 +113,7 @@ def handoff_to_agent(customer_id, customer_name, issue_summary, conversation_sum
             "hs_pipeline": "69442858",
             "hs_pipeline_stage": "134696743",
             "hs_ticket_priority": "HIGH",
-            "content": f"Issue: {issue_summary} \n\nSummary: {conversation_summary} \n\nChat History: {chat_history}",
+            "content": f"Issue: {issue_summary} \n\nSummary: {conversation_summary}",
             "subject": f"Handoff {customer_name} to an agent",
         },
         "associations": [
